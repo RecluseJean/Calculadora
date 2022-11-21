@@ -1,14 +1,38 @@
-import { NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SigninComponent } from './pages/signin/signin.component';
-import { SignupComponent } from './pages/signup/signup.component';
+
+import { IndexComponent } from './pages/index/index.component';
+
+import { SigninAdminComponent } from './pages/signin/signin-admin/signin-admin.component';
+
+import { SignupAdminComponent } from './pages/signup/signup-admin/signup-admin.component';
+
+import { Error403AdminComponent } from './pages/error403/error403-admin/error403-admin.component';
+import { Error403AgricultorComponent } from './pages/error403/error403-agricultor/error403-agricultor.component';
+import { Error403MasterComponent } from './pages/error403/error403-master/error403-master.component';
 
 const routes: Routes = [
   
-  { path: 'signin', component: SigninComponent},
-  { path: 'signup', component: SignupComponent},
+  { path: '', component: IndexComponent},
+  { path: 'index', component: IndexComponent},
+
+  //Signin//
+  { path: 'signin', component: SigninAdminComponent},
+
+  //Signup//
+  { path: 'signup', component: SignupAdminComponent},
+
+  //Error403
+  { path: 'error403/master', component: Error403MasterComponent, data: { title: 'Error' } },
+  { path: 'error403/admin', component: Error403AdminComponent, data: { title: 'Error' } },
+  { path: 'error403/agricultor', component: Error403AgricultorComponent, data: { title: 'Error' } },
   
-  //{ path: 'signin', component: ReclutadorProfileComponent, data: { title: 'Mi Perfil | Kaizen Talent'}, canActivate:[AuthGuard] },
+  //Dashboard
+  { path: '',
+    loadChildren: () => import ('./pages/dashboard/dashboard.module').then(module =>module.DashboardModule),
+  },
+
+  { path: '**', redirectTo: 'index'},
 
 ];
 
@@ -16,5 +40,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
 
+export class AppRoutingModule { }

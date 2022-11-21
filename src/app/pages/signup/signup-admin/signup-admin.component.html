@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Registro Agricultor - Fenosys</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+
+    <link href="/assets/css/animate.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- css -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="vh-100 bg-light" style="background: url(/assets/images/overlay-1.png) center;">
+
+    <div class="contain-box">
+        
+        <div class="text-center">            
+            <button type="submit" class="back-button btn text-primary btn-back " [disabled]="!userSignupForm.valid"><a href="" ><i class="mdi mdi-arrow-left mr-1"></i> Retroceder</a></button>
+        </div>
+
+        <div class="home-center">
+            <div class="home-desc-center">
+                <div class="container"> 
+                    <div class="row justify-content-center align-items center">
+                        
+                        <div class="col-lg-6">
+                            <div class="cartita clasesita p-5 mt-5 px-3 rounded bg-white animate__animated animate__fadeInRight"> 
+                                                          
+                                <div class="text-center">
+                                    <h2 class="text-primary textoAgricultor mt-2" style="font-weight: 600;">Completa tu registro</h2>
+                                </div>
+
+                                <div class="custom-form">
+                                    <form name="userSignupForm" [formGroup]="userSignupForm" (ngSubmit)="SignupUsuario()">
+                                        <div class="form-group">
+                                            <label for="nombres" class=" " style="font-size: 1.4vh; font-weight: bolder;">Nombres</label>
+                                            <input type="text"  class="form-control" id="nombres" placeholder="Ingrese sus Nombres" formControlName="nombreUsuario" required [ngClass]="{
+                                                'is-invalid': userSignupForm.controls['nombreUsuario'].invalid && 
+                                                             (userSignupForm.controls['nombreUsuario'].dirty || 
+                                                              userSignupForm.controls['nombreUsuario'].touched) , 
+                                                'is-valid':   userSignupForm.controls['nombreUsuario'].valid}" />
+
+                                            <div class="invalid-feedback">
+                                                <span class="text-danger" *ngIf="userSignupForm.controls['nombreUsuario'].hasError('required')">
+                                                    No puede dejar este campo vacío
+                                                </span>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                <span class="text-danger" *ngIf="userSignupForm.controls['nombreUsuario'].hasError('minlength')">
+                                                    Debe contener al menos 2 caracteres
+                                                </span>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                <span class="text-danger" *ngIf="userSignupForm.controls['nombreUsuario'].hasError('maxlength')">
+                                                    Debe contener como maximo 50 caracteres
+                                                </span>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                <span class="text-danger" *ngIf="userSignupForm.controls['nombreUsuario'].hasError('pattern')">
+                                                    Caracteres no permitidos
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="apellidos" class="letraRegistro" style="font-size: 1.4vh; font-weight: bolder;">Apellidos</label>
+                                            <input type="text"  class="form-control" id="apellidos" placeholder="Ingrese sus Apellidos" formControlName="apellidoUsuario" required [ngClass]="{
+                                                'is-invalid': userSignupForm.controls['apellidoUsuario'].invalid && 
+                                                             (userSignupForm.controls['apellidoUsuario'].dirty || 
+                                                              userSignupForm.controls['apellidoUsuario'].touched) , 
+                                                'is-valid':   userSignupForm.controls['apellidoUsuario'].valid}" />
+
+                                            <div class="invalid-feedback">
+                                                <span class="text-danger" *ngIf="userSignupForm.controls['apellidoUsuario'].hasError('required')">
+                                                    No puede dejar este campo vacío
+                                                </span>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                <span class="text-danger" *ngIf="userSignupForm.controls['apellidoUsuario'].hasError('minlength')">
+                                                    Debe contener al menos 2 caracteres
+                                                </span>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                <span class="text-danger" *ngIf="userSignupForm.controls['apellidoUsuario'].hasError('maxlength')">
+                                                    Debe contener como maximo 50 caracteres
+                                                </span>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                <span class="text-danger" *ngIf="userSignupForm.controls['apellidoUsuario'].hasError('pattern')">
+                                                    Caracteres no permitidos
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                          <label for="email" class="letraRegistro nombreRegistro" style="font-size: 1.4vh; font-weight: bolder;">Correo</label>
+                                          <input type="email" class="form-control" id="username" placeholder="Ingrese su correo" formControlName="emailUsuario" required [ngClass]="{
+                                              'is-invalid': userSignupForm.controls['emailUsuario'].invalid && 
+                                                           (userSignupForm.controls['emailUsuario'].dirty || 
+                                                            userSignupForm.controls['emailUsuario'].touched) , 
+                                              'is-valid':   userSignupForm.controls['emailUsuario'].valid}" />
+
+                                          <div class="invalid-feedback">
+                                              <span class="text-danger" *ngIf="userSignupForm.controls['emailUsuario'].hasError('required')">
+                                                  No puede dejar este campo vacío
+                                              </span>
+                                          </div>
+                                          <div class="invalid-feedback">
+                                              <span class="text-danger" *ngIf="userSignupForm.controls['emailUsuario'].hasError('email')">
+                                                  Correo electrónico no válido
+                                              </span>
+                                          </div>
+                                      </div>
+
+                                        <div class="form-group">
+                                            <label for="username" class="letraRegistro nombreRegistro" style="font-size: 1.4vh; font-weight: bolder;">Usuario</label>
+                                            <input type="text" class="form-control" id="username" placeholder="Ingrese su Usuario para su cuenta" formControlName="usernameUsuario" required [ngClass]="{
+                                                'is-invalid': userSignupForm.controls['usernameUsuario'].invalid && 
+                                                             (userSignupForm.controls['usernameUsuario'].dirty || 
+                                                              userSignupForm.controls['usernameUsuario'].touched) , 
+                                                'is-valid':   userSignupForm.controls['usernameUsuario'].valid}" />
+
+                                            <div class="invalid-feedback">
+                                                <span class="text-danger" *ngIf="userSignupForm.controls['usernameUsuario'].hasError('required')">
+                                                    No puede dejar este campo vacío
+                                                </span>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                <span class="text-danger" *ngIf="userSignupForm.controls['usernameUsuario'].hasError('minlength')">
+                                                    Debe contener al menos 6 caracteres
+                                                </span>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                <span class="text-danger" *ngIf="userSignupForm.controls['usernameUsuario'].hasError('maxlength')">
+                                                    Debe contener como maximo 20 caracteres
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        
+                                        <div class="form-group">
+                                            <label for="userpassword" class="letraRegistro" style="font-size: 1.4vh; font-weight: bolder;">Contraseña</label>
+                                            <input type="password" class="form-control" id="userpassword" placeholder="Ingrese la Contraseña deseada" formControlName="passwordUsuario" required [ngClass]="{
+                                                'is-invalid': userSignupForm.controls['passwordUsuario'].invalid && 
+                                                              (userSignupForm.controls['passwordUsuario'].dirty || 
+                                                              userSignupForm.controls['passwordUsuario'].touched) , 
+                                                  'is-valid': userSignupForm.controls['passwordUsuario'].valid}" />
+
+                                            <div class="invalid-feedback">
+                                                <span class="text-danger" *ngIf="userSignupForm.controls['passwordUsuario'].hasError('required')">
+                                                          No puede dejar este campo vacío
+                                                      </span>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                <span class="text-danger" *ngIf="userSignupForm.controls['passwordUsuario'].hasError('minlength')">
+                                                          Debe contener al menos 8 caracteres
+                                                      </span>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                <span class="text-danger" *ngIf="userSignupForm.controls['passwordUsuario'].hasError('maxlength')">
+                                                        Debe contener al menos 20 caracteres
+                                                    </span>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                <span class="text-danger" *ngIf="userSignupForm.controls['passwordUsuario'].hasError('passwordnumber')">
+                                                          Debe contener al menos un número
+                                                      </span>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                <span class="text-danger" *ngIf="userSignupForm.controls['passwordUsuario'].hasError('passworduppercase')">
+                                                          Debe contener al menos una letra mayúscula
+                                                      </span>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                <span class="text-danger" *ngIf="userSignupForm.controls['passwordUsuario'].hasError('passwordsmallcase')">
+                                                          Debe contener al menos una letra minúscula
+                                                      </span>
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                <span class="text-danger" *ngIf="userSignupForm.controls['passwordUsuario'].hasError('passwordspecialcharacter')">
+                                                          Debe contener al menos un carácter especial
+                                                      </span>
+                                            </div>
+                                        </div>
+
+                                        <br>
+                                        <div *ngIf="this.alert" class="alert" [class]="alerttype" role="alert">
+                                          {{message}}
+                                        </div>
+
+                                        <div class="mt-3">
+                                            <button type="submit" class="btn btn-primary btn-block text-uppercase " [disabled]="!userSignupForm.valid">Regístrate</button>
+                                        </div>
+                                        <div class="mt-4 mb-0 text-center">
+                                            <p class="mb-0">¿Tienes una cuenta? <a href="signin/agricultor" class="text-info">¡Logueate!</a></p>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

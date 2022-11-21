@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Login Admin - Fenosys</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- favicon -->
+        <link rel="shortcut icon" href="/assets/images/favicon.ico" />
+
+        <link href="/assets/css/animate.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- css -->
+        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="/assets/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+
+        <link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
+
+        <!-- fontawesome-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body id="start" class="vh-100 bg-light overflow-hidden" style="background: url(/assets/images/overlay-1.png) center;">
+
+        <div class="contain-box">
+
+            <div class="home-center">
+                <div class="home-desc-center">
+                    <div class="container">
+                        <div class="row justify-content-center align-items center">
+                            <div class="col-lg-6 mt-5">
+                                <div class="p-5 mt-5 px-3 rounded bg-white animate__animated animate__fadeInRight">
+
+                                    <div class="text-center" style="margin-top: 5%;">
+                                        <h3 class="text-primary" style="font-weight: 600;">Iniciar Sesión</h3>
+                                        <p class="text-muted f-18">Ingresa tus datos para Iniciar Sesión</p>
+                                    </div>
+
+                                    <div class="custom-form" style="margin-top: 5%;">
+                                        <form [formGroup]="userSigninForm" name="userSigninForm" (ngSubmit)="SigninUsuario()">
+                                            <div class="form-group">
+                                                <label for="username">Usuario / Correo Electrónico</label>
+                                                <input type="text" style="border-radius: 10px;" class="form-control" id="username"
+                                                formControlName="usernameUsuario" placeholder="Ingresa tu Usuario o tu Correo Electrónico" required
+                                                [ngClass]="{
+                                                  'is-invalid': userSigninForm.controls['usernameUsuario'].invalid && 
+                                                              (userSigninForm.controls['usernameUsuario'].dirty || 
+                                                              userSigninForm.controls['usernameUsuario'].touched) , 
+                                                  'is-valid': userSigninForm.controls['usernameUsuario'].valid}" />
+                                                <div class="invalid-feedback">
+                                                    <span class="text-danger" *ngIf="userSigninForm.controls['usernameUsuario'].hasError('required')">
+                                                        No puede dejar este campo vacío
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="userpassword">Contraseña</label>
+                                                <input type="password" class="form-control" style="border-radius: 10px;"
+                                                    placeholder="Ingresa tu Contraseña" formControlName="passwordUsuario" required
+                                                    [ngClass]="{
+                                                      'is-invalid': userSigninForm.controls['passwordUsuario'].invalid && 
+                                                                   (userSigninForm.controls['passwordUsuario'].dirty || 
+                                                                    userSigninForm.controls['passwordUsuario'].touched) , 
+                                                        'is-valid': userSigninForm.controls['passwordUsuario'].valid}"/>
+
+                                                    <div class="invalid-feedback">
+                                                        <span class="text-danger" *ngIf="userSigninForm.controls['passwordUsuario'].hasError('required')">
+                                                          No puede dejar este campo vacío
+                                                        </span>
+                                                    </div>
+                                            </div>
+
+                                            <br>
+                                            <div *ngIf="this.alert" class="alert alert-danger" role="alert">
+                                                {{message}}
+                                            </div>
+
+                                            <div style="margin-top: 6%;">
+                                                <button type="submit" id="start" class="btn btn-primary btn-block text-uppercase" [disabled]="!userSigninForm.valid">Iniciar Sesión</button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>

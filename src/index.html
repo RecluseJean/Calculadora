@@ -1,111 +1,73 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <title>Calculadora</title>
-  <link rel="icon" type="image/png" href="assets/images/p.png">
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-    <!-- Bootstrap Core CSS -->
-    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../assets/css/pagination.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <link href="./assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+  <link href="./assets/vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="assets/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/plugins/dropify/dist/css/dropify.min.css">
-    <link href="assets/css/stylish-tooltip.css" rel="stylesheet">
-    <!-- You can change the theme colors from here -->
-    <link id="tema" href="" id="theme" rel="stylesheet">
-
-    <base href="/">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
-
-    <!--  Datepicker -->
-    <!-- <link href="https://cdn.syncfusion.com/ej2/material.css" rel="stylesheet" /> -->
-    <link href="assets/css/date-picker.css" rel="stylesheet" />
-
-    <!-- Google -->
-    <script src="https://apis.google.com/js/platform.js"></script>
-    <meta name="google-signin-client_id" content="442737206823-dilej5tevnrv61sovd7bocf5qeafmjs3.apps.googleusercontent.com">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#1976d2">
 </head>
 <body>
-  
-  <app-root></app-root>  
-  <!-- ============================================================== -->
-    <!-- All Jquery -->
-    <!-- ============================================================== -->
-    <script src="assets/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="assets/plugins/bootstrap/js/popper.min.js"></script>
-    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="assets/js/perfect-scrollbar.jquery.min.js"></script>
-    <!--Wave Effects -->
-    <script src="assets/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="assets/js/sidebarmenu.js"></script>
-    <!--stickey kit -->
-    <script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
-    <script src="assets/plugins/sparkline/jquery.sparkline.min.js"></script>
 
-    <!--Custom JavaScript -->
-    <script src="assets/js/custom.js"></script>
+  <app-root></app-root>
 
+  <script type="text/javascript" src="./assets/vendor/global/global.min.js"></script>
+  <script type="text/javascript" src="./assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+  <script type="text/javascript" src="./assets/js/custom.min.js"></script>
+  <script type="text/javascript" src="./assets/js/deznav-init.js"></script>
+  <script type="text/javascript" src="./assets/vendor/owl-carousel/owl.carousel.js"></script>
 
+  <script>
+		function carouselReview(){
+			/*  testimonial one function by = owl.carousel.js */
+			jQuery('.testimonial-one').owlCarousel({
+				loop:true,
+				autoplay:true,
+				margin:30,
+				nav:false,
+				dots: false,
+				left:true,
+				navText: ['<i class="fa fa-chevron-left" aria-hidden="true"></i>', '<i class="fa fa-chevron-right" aria-hidden="true"></i>'],
+				responsive:{
+					0:{
+						items:1
+					},
+					484:{
+						items:2
+					},
+					882:{
+						items:3
+					},	
+					1200:{
+						items:2
+					},			
+					
+					1540:{
+						items:3
+					},
+					1740:{
+						items:4
+					}
+				}
+			})			
+		}
+		jQuery(window).on('load',function(){
+			setTimeout(function(){
+				carouselReview();
+			}, 1000); 
+		});
+	</script>
 
-
-    <!-- ============================================================== -->
-
-
-
-    <!-- Style switcher -->
-    <!-- ============================================================== -->
-    <script src="assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
-    <link href="assets/plugins/gridstack/gridstack.css" rel="stylesheet">
-
-    <!-- <link href="/Front-End//src/select2.css" rel="stylesheet"> -->
-
-    <!-- Draggable-portlet -->
-
-    <script src="assets/plugins/dropify/dist/js/dropify.min.js"></script>
-    <script src="assets/js/btn-minus.js"></script>
-    <!-- Date picker plugins css -->
-    <link href="assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
-
-    <!-- Date Picker Plugin JavaScript -->
-    <script src="assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-    <!-- Date range Plugin JavaScript -->
-    <script src="assets/plugins/timepicker/bootstrap-timepicker.min.js"></script>
-    <script src="assets/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
-    <!-- Daterange picker plugins css -->
-    <!-- wysuhtml5 Plugin JavaScript -->
-    <script src="assets/plugins/tinymce/tinymce.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
-    <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/MorphSVGPlugin.min.js?r=182'></script>
-
-    
   <noscript>Please enable JavaScript to continue using this application.</noscript>
-  <!--<script>
-    var check = function() {
-      if (document.getElementById('password').value ==
-          document.getElementById('confirmar_password').value) {
-          document.getElementById('message').style.color = 'green';
-          document.getElementById('message').innerHTML = 'Las contraseñas Coinciden';
-      } else {
-              document.getElementById('message').style.color = 'red';
-          document.getElementById('message').innerHTML = 'Ambas contraseñas NO coinciden';
-      }
-  }
-</script>-->
-<!--
-<script>
-$(document).ready(function() {
-    $('.modal').on('hidden.bs.modal', function(){
-        $(this).find('form')[0].reset();
-     });
-});
-</script>-->
 
-
+  
 </body>
 </html>

@@ -7,11 +7,12 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit{
   
-  title = 'Calculadora';
+  title = 'Fenosys';
 
-  constructor(private titleService: Title, private router : Router, private activePage: ActivatedRoute) {}
+  constructor(private titleService: Title, private router: Router, private activePage: ActivatedRoute) {}
 
   ngOnInit() {
     this.changeTitle();
@@ -33,6 +34,6 @@ export class AppComponent implements OnInit{
         default:
           break;
       }
-    })
+    });
   }
 }

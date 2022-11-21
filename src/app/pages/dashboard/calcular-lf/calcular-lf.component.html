@@ -1,0 +1,311 @@
+<div class="container-fluid">
+
+    <div class="page-titles">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+            <li class="breadcrumb-item active"><a href="javascript:void(0)">Calcular Leasing Financiero</a></li>
+        </ol>
+    </div>
+    <div class="form-row">
+        
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="leasingFinancieroForm" name="leasingFinancieroForm" (ngSubmit)="CalcularLeasing()">
+                        <h5 class="card-title">Datos del préstamo</h5>
+                        <div>
+                            <hr>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-sm-3">
+                                <label for="">Nombre Leasing</label>
+                                <input type="text" class="form-control" formControlName="nombre" required
+                                [ngClass]="{
+                                  'is-invalid': leasingFinancieroForm.controls['nombre'].invalid && 
+                                              (leasingFinancieroForm.controls['nombre'].dirty || 
+                                              leasingFinancieroForm.controls['nombre'].touched) , 
+                                  'is-valid': leasingFinancieroForm.controls['nombre'].valid}" />
+                                <div class="invalid-feedback">
+                                    <span class="text-danger" *ngIf="leasingFinancieroForm.controls['nombre'].hasError('required')">
+                                        No puede dejar este campo vacío
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="">Precio Venta Activo</label>
+                                <input type="number" class="form-control" formControlName="precioVentaActivo" required
+                                [ngClass]="{
+                                  'is-invalid': leasingFinancieroForm.controls['precioVentaActivo'].invalid && 
+                                              (leasingFinancieroForm.controls['precioVentaActivo'].dirty || 
+                                              leasingFinancieroForm.controls['precioVentaActivo'].touched) , 
+                                  'is-valid': leasingFinancieroForm.controls['precioVentaActivo'].valid}" />
+                                <div class="invalid-feedback">
+                                    <span class="text-danger" *ngIf="leasingFinancieroForm.controls['precioVentaActivo'].hasError('required')">
+                                        No puede dejar este campo vacío
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="">N° Años</label>
+                                <input type="number" class="form-control" formControlName="nAnios"required
+                                [ngClass]="{
+                                  'is-invalid': leasingFinancieroForm.controls['nAnios'].invalid && 
+                                              (leasingFinancieroForm.controls['nAnios'].dirty || 
+                                              leasingFinancieroForm.controls['nAnios'].touched) , 
+                                  'is-valid': leasingFinancieroForm.controls['nAnios'].valid}" />
+                                <div class="invalid-feedback">
+                                    <span class="text-danger" *ngIf="leasingFinancieroForm.controls['nAnios'].hasError('required')">
+                                        No puede dejar este campo vacío
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="">Frecuencia de Pago</label>
+                                <input type="number" class="form-control" formControlName="frecuenciaPago" required
+                                [ngClass]="{
+                                  'is-invalid': leasingFinancieroForm.controls['frecuenciaPago'].invalid && 
+                                              (leasingFinancieroForm.controls['frecuenciaPago'].dirty || 
+                                              leasingFinancieroForm.controls['frecuenciaPago'].touched) , 
+                                  'is-valid': leasingFinancieroForm.controls['frecuenciaPago'].valid}" />
+                                <div class="invalid-feedback">
+                                    <span class="text-danger" *ngIf="leasingFinancieroForm.controls['frecuenciaPago'].hasError('required')">
+                                        No puede dejar este campo vacío
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="">N° Días x Año</label>
+                                <input type="number" class="form-control" formControlName="nDiasAnio" required
+                                [ngClass]="{
+                                  'is-invalid': leasingFinancieroForm.controls['nDiasAnio'].invalid && 
+                                              (leasingFinancieroForm.controls['nDiasAnio'].dirty || 
+                                              leasingFinancieroForm.controls['nDiasAnio'].touched) , 
+                                  'is-valid': leasingFinancieroForm.controls['nDiasAnio'].valid}" />
+                                <div class="invalid-feedback">
+                                    <span class="text-danger" *ngIf="leasingFinancieroForm.controls['nDiasAnio'].hasError('required')">
+                                        No puede dejar este campo vacío
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="">TEA (%)</label>
+                                <input type="number" class="form-control" formControlName="porcentajeTEA" required
+                                [ngClass]="{
+                                  'is-invalid': leasingFinancieroForm.controls['porcentajeTEA'].invalid && 
+                                              (leasingFinancieroForm.controls['porcentajeTEA'].dirty || 
+                                              leasingFinancieroForm.controls['porcentajeTEA'].touched) , 
+                                  'is-valid': leasingFinancieroForm.controls['porcentajeTEA'].valid}" />
+                                <div class="invalid-feedback">
+                                    <span class="text-danger" *ngIf="leasingFinancieroForm.controls['porcentajeTEA'].hasError('required')">
+                                        No puede dejar este campo vacío
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="">IGV (%)</label>
+                                <input type="number" class="form-control" formControlName="porcentajeIGV" required
+                                [ngClass]="{
+                                  'is-invalid': leasingFinancieroForm.controls['porcentajeIGV'].invalid && 
+                                              (leasingFinancieroForm.controls['porcentajeIGV'].dirty || 
+                                              leasingFinancieroForm.controls['porcentajeIGV'].touched) , 
+                                  'is-valid': leasingFinancieroForm.controls['porcentajeIGV'].valid}" />
+                                <div class="invalid-feedback">
+                                    <span class="text-danger" *ngIf="leasingFinancieroForm.controls['porcentajeIGV'].hasError('required')">
+                                        No puede dejar este campo vacío
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="">Impuesto Renta (%)</label>
+                                <input type="number" class="form-control" formControlName="porcentajeImpuestoRenta" required
+                                [ngClass]="{
+                                  'is-invalid': leasingFinancieroForm.controls['porcentajeImpuestoRenta'].invalid && 
+                                              (leasingFinancieroForm.controls['porcentajeImpuestoRenta'].dirty || 
+                                              leasingFinancieroForm.controls['porcentajeImpuestoRenta'].touched) , 
+                                  'is-valid': leasingFinancieroForm.controls['porcentajeImpuestoRenta'].valid}" />
+                                <div class="invalid-feedback">
+                                    <span class="text-danger" *ngIf="leasingFinancieroForm.controls['porcentajeImpuestoRenta'].hasError('required')">
+                                        No puede dejar este campo vacío
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="">Recompra (%)</label>
+                                <input type="number" class="form-control" formControlName="porcentajeRecompra" required
+                                [ngClass]="{
+                                  'is-invalid': leasingFinancieroForm.controls['porcentajeRecompra'].invalid && 
+                                              (leasingFinancieroForm.controls['porcentajeRecompra'].dirty || 
+                                              leasingFinancieroForm.controls['porcentajeRecompra'].touched) , 
+                                  'is-valid': leasingFinancieroForm.controls['porcentajeRecompra'].valid}" />
+                                <div class="invalid-feedback">
+                                    <span class="text-danger" *ngIf="leasingFinancieroForm.controls['porcentajeRecompra'].hasError('required')">
+                                        No puede dejar este campo vacío
+                                    </span>
+                                </div>
+                            </div>                           
+                        </div>
+                        <br>
+                        <h5 class="card-title">Datos de los costes/gastos iniciales</h5>
+                        <div>
+                            <hr>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-sm-3">
+                                <label for="">Costes Notariales</label>
+                                <input type="number" class="form-control" formControlName="costesNotariales">
+                            </div>   
+                            <div class="form-group col-sm-3">
+                                <label for="">Costes Registrales</label>
+                                <input type="number" class="form-control" formControlName="costesRegistrales">
+                            </div>   
+                            <div class="form-group col-sm-3">
+                                <label for="">Tasación</label>
+                                <input type="number" class="form-control" formControlName="tasacion">
+                            </div>   
+                            <div class="form-group col-sm-3">
+                                <label for="">Comisión de Estudio</label>
+                                <input type="number" class="form-control" formControlName="comisionEstudio">
+                            </div> 
+                            <div class="form-group col-sm-3">
+                                <label for="">Comisión de Activación</label>
+                                <input type="number" class="form-control" formControlName="comisionActivacion" required
+                                [ngClass]="{
+                                  'is-invalid': leasingFinancieroForm.controls['comisionActivacion'].invalid && 
+                                              (leasingFinancieroForm.controls['comisionActivacion'].dirty || 
+                                              leasingFinancieroForm.controls['comisionActivacion'].touched) , 
+                                  'is-valid': leasingFinancieroForm.controls['comisionActivacion'].valid}" />
+                                <div class="invalid-feedback">
+                                    <span class="text-danger" *ngIf="leasingFinancieroForm.controls['comisionActivacion'].hasError('required')">
+                                        No puede dejar este campo vacío
+                                    </span>
+                                </div>
+                            </div>     
+                        </div>
+
+                        <br>
+                        <h5 class="card-title">Datos de los costes/gastos periódicos - oportunidad</h5>
+                        <div>
+                            <hr>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-sm-3">
+                                <label for="">Comisión periódica</label>
+                                <input type="number" class="form-control" formControlName="comisionPeriodica" required
+                                [ngClass]="{
+                                  'is-invalid': leasingFinancieroForm.controls['comisionPeriodica'].invalid && 
+                                              (leasingFinancieroForm.controls['comisionPeriodica'].dirty || 
+                                              leasingFinancieroForm.controls['comisionPeriodica'].touched) , 
+                                  'is-valid': leasingFinancieroForm.controls['comisionPeriodica'].valid}" />
+                                <div class="invalid-feedback">
+                                    <span class="text-danger" *ngIf="leasingFinancieroForm.controls['comisionPeriodica'].hasError('required')">
+                                        No puede dejar este campo vacío
+                                    </span>
+                                </div>
+                            </div>   
+                            <div class="form-group col-sm-3">
+                                <label for="">Seguro Riesgo (%)</label>
+                                <input type="number" class="form-control" formControlName="porcentajeSeguroRiesgo" required
+                                [ngClass]="{
+                                  'is-invalid': leasingFinancieroForm.controls['porcentajeSeguroRiesgo'].invalid && 
+                                              (leasingFinancieroForm.controls['porcentajeSeguroRiesgo'].dirty || 
+                                              leasingFinancieroForm.controls['porcentajeSeguroRiesgo'].touched) , 
+                                  'is-valid': leasingFinancieroForm.controls['porcentajeSeguroRiesgo'].valid}" />
+                                <div class="invalid-feedback">
+                                    <span class="text-danger" *ngIf="leasingFinancieroForm.controls['porcentajeSeguroRiesgo'].hasError('required')">
+                                        No puede dejar este campo vacío
+                                    </span>
+                                </div>
+                            </div>    
+                            <div class="form-group col-sm-3">
+                                <label for="">Tasa de Descuento Ks</label>
+                                <input type="number" class="form-control" formControlName="tasaDescuentoKs" required
+                                [ngClass]="{
+                                  'is-invalid': leasingFinancieroForm.controls['tasaDescuentoKs'].invalid && 
+                                              (leasingFinancieroForm.controls['tasaDescuentoKs'].dirty || 
+                                              leasingFinancieroForm.controls['tasaDescuentoKs'].touched) , 
+                                  'is-valid': leasingFinancieroForm.controls['tasaDescuentoKs'].valid}" />
+                                <div class="invalid-feedback">
+                                    <span class="text-danger" *ngIf="leasingFinancieroForm.controls['tasaDescuentoKs'].hasError('required')">
+                                        No puede dejar este campo vacío
+                                    </span>
+                                </div>
+                            </div>   
+                            <div class="form-group col-sm-3">
+                                <label for="">Tasa de Descuento WACC</label>
+                                <input type="number" class="form-control" formControlName="tasaDescuentoWACC" required
+                                [ngClass]="{
+                                  'is-invalid': leasingFinancieroForm.controls['tasaDescuentoWACC'].invalid && 
+                                              (leasingFinancieroForm.controls['tasaDescuentoWACC'].dirty || 
+                                              leasingFinancieroForm.controls['tasaDescuentoWACC'].touched) , 
+                                  'is-valid': leasingFinancieroForm.controls['tasaDescuentoWACC'].valid}" />
+                                <div class="invalid-feedback">
+                                    <span class="text-danger" *ngIf="leasingFinancieroForm.controls['tasaDescuentoWACC'].hasError('required')">
+                                        No puede dejar este campo vacío
+                                    </span>
+                                </div>
+                            </div>   
+                        </div>
+                        <div>
+                            <hr>
+                        </div>
+                        <br>
+                        <div *ngIf="this.alert" class="text-center alert" [class]="alerttype" role="alert">
+                            {{message}}
+                        </div>
+                        <div class="form-row mt-4">
+                            <div class="form-group col-sm-3">
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <button type="submit" class="btn btn-primary btn-block text-uppercase" [disabled]="!leasingFinancieroForm.valid">Iniciar Cálculo</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+       <!-- <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title">Resultados</h5>
+                </div>
+                <div class="card-body">
+                    <form >
+                        <div class="form-row">
+                            <div class="form-group col-sm-12">
+                                <label for="">Cuota Inicial :</label>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="">Monto Pretado :</label>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="">Cuotas por Año :</label>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="">Número de Cuotas :</label>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="">Intereses :</label>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="">Amortización :</label>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="">TIR :</label>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="">TCEA :</label>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label for="">Moneda :</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>-->
+    </div>
+    
+
+</div>

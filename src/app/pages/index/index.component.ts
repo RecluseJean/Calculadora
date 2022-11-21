@@ -9,6 +9,8 @@ export class IndexComponent implements OnInit {
 
   constructor() { }
 
+  anioactual: number = new Date().getFullYear();
+
   ngOnInit(): void {
   }
 

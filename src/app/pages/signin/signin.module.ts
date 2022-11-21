@@ -1,23 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PostulanteSigninComponent } from './postulante/postulante-signin.component';
-import { ReclutadorSigninComponent } from './reclutador/reclutador-signin.component';
-import { AppRoutingModule } from '../../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SigninComponent } from './signin.component';
+
+import { SigninAdminComponent } from './signin-admin/signin-admin.component';
+
+
 
 @NgModule({
   declarations: [
-    PostulanteSigninComponent,
-    ReclutadorSigninComponent,
-    SigninComponent
+    SigninAdminComponent,
   ],
   imports: [
     CommonModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    NgbModule
+    ReactiveFormsModule
   ]
 })
 export class SigninModule { }
